@@ -22,3 +22,11 @@
   font-style: normal;
   src: url('../assets/fonts/static/RedHatText-Bold.ttf') format('truetype');
 }
+
+.custom-filter {
+  filter: brightness(0) saturate(100%) invert(30%) sepia(31%) saturate(4011%) hue-rotate(352deg) brightness(88%) contrast(99%);
+}
+
+.white-svg {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(5%) hue-rotate(228deg) brightness(103%) contrast(103%);
+}

@@ -5,6 +5,7 @@ import YourCart from "./components/YourCart";
 function App() {
   const [menus, setMenus] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     fetch('../src/assets/data.json')
@@ -19,16 +20,27 @@ function App() {
       });
   }, []);
 
-  // console.log(menus)
+  function handleInputCartItems(newItem) {
+    setCartItems(prevCartItems => [...prevCartItems, newItem]);
+  }
+
+  function onDeleteItem(itemName) {
+    setCartItems(prevCartItems => prevCartItems.filter(item => item.name !== itemName));
+  }
+
+  function handleDeleteCartItem() {
+
+  }
+
   return (
     <>
     {isLoading ? (
       <p>Loading...</p>
     ) : (
-      <>
-        <Cards menus={menus} />
-        <YourCart />
-      </>
+      <div className="flex bg-rose_50 p-24 justify-between">
+        <Cards menus={menus} handleInputCartItems={handleInputCartItems} handleDeleteCartItem={handleDeleteCartItem}/>
+        <YourCart cartItems={cartItems} onDeleteItem={onDeleteItem}/>
+      </div>
     )}
   </>
   )
