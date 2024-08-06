@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import AddToCard from "./AddToCard";
 
-function Card({ menu, handleInputCartItems, handleDeleteCartItem }) {
+function Card({ menu, handleInputCartItems, handleDeleteCartItem, uniqueCartItems }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleImageLoad = () => {
@@ -26,7 +26,7 @@ function Card({ menu, handleInputCartItems, handleDeleteCartItem }) {
           <source srcSet={imageUrl('mobile')} media="(max-width: 767px)" onLoad={handleImageLoad} />
           <img  className='w-full h-full object-cover rounded-lg' src={imageUrl('thumbnail')} alt={menu.name} onLoad={handleImageLoad} />
         </picture>
-        <AddToCard menu={menu} handleInputCartItems={handleInputCartItems} handleDeleteCartItem={handleDeleteCartItem} />
+        <AddToCard menu={menu} handleInputCartItems={handleInputCartItems} handleDeleteCartItem={handleDeleteCartItem} uniqueCartItems={uniqueCartItems} />
       </div>
       
       {!isLoading && (
@@ -43,7 +43,8 @@ function Card({ menu, handleInputCartItems, handleDeleteCartItem }) {
 Card.propTypes = {
   menu: PropTypes.object.isRequired,
   handleInputCartItems: PropTypes.func,
-  handleDeleteCartItem: PropTypes.func
+  handleDeleteCartItem: PropTypes.func,
+  uniqueCartItems: PropTypes.array
 }
 
 export default Card;

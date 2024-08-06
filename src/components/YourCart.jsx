@@ -3,18 +3,7 @@ import Close from '../../public/images/icon-remove-item.svg';
 import CarbonNetral from '../../public/images/icon-carbon-neutral.svg';
 import EmptyCart from '../../public/images/illustration-empty-cart.svg';
 
-function YourCart({ cartItems, onDeleteItem }) {
-  console.log(onDeleteItem)
-  const uniqueCartItems = cartItems.reduce((acc, item) => {
-    const foundItem = acc.find(cartItem => cartItem.name === item.name);
-    if (foundItem) {
-      foundItem.quantity += 1;
-    } else {
-      acc.push({ ...item, quantity: 1 });
-    }
-    return acc;
-  }, []);
-  
+function YourCart({ cartItems, uniqueCartItems, onDeleteItem, handleConfirmOrder}) {  
   const itemCount = cartItems.length > 0 ? cartItems.length : 0;
   const orderTotal = uniqueCartItems.reduce((total, item) => total + (item.quantity * item.price), 0);
 
@@ -54,7 +43,7 @@ function YourCart({ cartItems, onDeleteItem }) {
           <p>This is a <span className='font-semibold'>carbon-neutral</span> delivery</p>
         </div>
 
-        <button className='bg-red rounded-full p-2 text-white mt-5 w-full'>Confirm Order</button>
+        <button className='bg-red rounded-full p-2 text-white mt-5 w-full text-sm font-semibold' onClick={()=>handleConfirmOrder()}>Confirm Order</button>
       </div>
     
       )}
@@ -64,7 +53,9 @@ function YourCart({ cartItems, onDeleteItem }) {
 
 YourCart.propTypes = {
   cartItems: PropTypes.array,
+  uniqueCartItems: PropTypes.array,
   onDeleteItem: PropTypes.func,
+  handleConfirmOrder: PropTypes.func
 }
 
 export default YourCart;
