@@ -2,14 +2,13 @@ import PropTypes from 'prop-types';
 import Check from '/images/icon-order-confirmed.svg';
 
 function OrderConfirmed({ uniqueCartItems, confirmOrder, handleNewOrder }) {
-  console.log(uniqueCartItems);
   const orderTotal = uniqueCartItems.reduce((total, item) => total + (item.quantity * item.price), 0);
 
   return (
     confirmOrder && (
-      <div className="absolute flex justify-center min-h-screen min-w-full max-w-7xl items-center">
+      <div className={`fixed inset-0 flex justify-center min-h-screen min-w-full max-w-7xl items-center`}>
         <div className="bg-black opacity-60 absolute w-full h-full"></div>
-        <div className="relative z-20 min-h-fit max-h-[420px] w-11/12 md:w-1/3 bg-white p-6 rounded-md font-redhat overflow-y-auto custom-scrollbar">
+        <div className="relative z-20 min-h-fit max-h-[420px] w-11/12 lg:w-2/3 xl:w-1/3 bg-white p-6 rounded-md font-redhat overflow-y-auto custom-scrollbar">
           <img src={Check} alt="Check Icon" className="w-10" />
           <h2 className="text-2xl font-bold pt-4 pb-1">Order Confirmed</h2>
           <p className="text-rose_500 text-sm pb-6">We hope you enjoy your food!</p>
@@ -46,7 +45,7 @@ function OrderConfirmed({ uniqueCartItems, confirmOrder, handleNewOrder }) {
 OrderConfirmed.propTypes = {
   uniqueCartItems: PropTypes.array.isRequired,
   confirmOrder: PropTypes.bool.isRequired,
-  handleNewOrder: PropTypes.func
+  handleNewOrder: PropTypes.func,
 }
 
 export default OrderConfirmed;

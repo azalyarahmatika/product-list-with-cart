@@ -3,7 +3,7 @@ import Card from "./Card";
 
 function Cards({ menus, handleInputCartItems, handleDeleteCartItem, uniqueCartItems }) { 
   return (
-    <div className='grid grid-cols-3 gap-5'>
+    <div className='grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5'>
       {menus.map((menu, index) => (
         <Card key={index} menu={menu} handleInputCartItems={handleInputCartItems} handleDeleteCartItem={handleDeleteCartItem} uniqueCartItems={uniqueCartItems} /> 
       ))}

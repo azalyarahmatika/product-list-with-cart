@@ -66,12 +66,12 @@ function App() {
     {isLoading ? (
       <p>Loading...</p>
     ) : (
-      <div className="flex bg-rose_50 justify-between relative max-w-7xl mx-auto">
+      <div className="flex flex-col bg-rose_50 justify-between relative max-w-7xl mx-auto xl:flex-row">
         <div className="py-20 pl-24">
           <h1 className="text-3xl font-bold font-redhat mb-5 text-rose_900">Desserts</h1>
           <Cards menus={menus} handleInputCartItems={handleInputCartItems} handleDeleteCartItem={handleDeleteCartItem} uniqueCartItems={uniqueCartItems}/>
         </div>
-        <div className="relative">
+        <div className="relative px-24 xl:px-0">
           <YourCart cartItems={cartItems} uniqueCartItems={uniqueCartItems} onDeleteItem={onDeleteItem} handleConfirmOrder={handleConfirmOrder}/>
         </div>
         
