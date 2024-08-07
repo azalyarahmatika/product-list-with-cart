@@ -30,3 +30,16 @@
 .white-svg {
   filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(5%) hue-rotate(228deg) brightness(103%) contrast(103%);
 }
+
+.custom-scrollbar {
+  overflow-y: auto;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+

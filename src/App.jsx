@@ -55,21 +55,28 @@ function App() {
   function handleConfirmOrder() {
     setConfirmOrder(true);
   }
+  
+  function handleNewOrder() {
+    setCartItems([]);
+    setConfirmOrder(false);
+  }
 
   return (
     <>
     {isLoading ? (
       <p>Loading...</p>
     ) : (
-      <div className="flex bg-rose_50 py-20 px-24 justify-between">
-        <div>
+      <div className="flex bg-rose_50 justify-between relative max-w-7xl mx-auto">
+        <div className="py-20 pl-24">
           <h1 className="text-3xl font-bold font-redhat mb-5 text-rose_900">Desserts</h1>
           <Cards menus={menus} handleInputCartItems={handleInputCartItems} handleDeleteCartItem={handleDeleteCartItem} uniqueCartItems={uniqueCartItems}/>
         </div>
+        <div className="relative">
+          <YourCart cartItems={cartItems} uniqueCartItems={uniqueCartItems} onDeleteItem={onDeleteItem} handleConfirmOrder={handleConfirmOrder}/>
+        </div>
         
-        <YourCart cartItems={cartItems} uniqueCartItems={uniqueCartItems} onDeleteItem={onDeleteItem} handleConfirmOrder={handleConfirmOrder}/>
 
-        <OrderConfirmed uniqueCartItems={uniqueCartItems} confirmOrder={confirmOrder} />
+        <OrderConfirmed uniqueCartItems={uniqueCartItems} confirmOrder={confirmOrder} handleNewOrder={handleNewOrder} />
       </div>
     )}
   </>
