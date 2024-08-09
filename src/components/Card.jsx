@@ -12,14 +12,14 @@ function Card({ menu, handleInputCartItems, handleDeleteCartItem, uniqueCartItem
   const imageUrl = (device) => `/images/${menu.images[device]}`;
 
   return (
-    <div className='container overflow-hidden xl:w-56 font-redhat lg:w-full pr-24 xl:pr-0'>
+    <div className='container overflow-hidden xl:w-56 font-redhat lg:w-full xl:pr-0'>
       {isLoading && (
         <div className="loading-indicator">
           <p>Loading image...</p>
         </div>
       )}
       
-      <div className='xl:h-52 relative h-96 md:h-80'>
+      <div className='xl:h-52 relative h-56 md:h-80'>
         <picture>
           <source srcSet={imageUrl('desktop')} media="(min-width: 1024px)" onLoad={handleImageLoad} />
           <source srcSet={imageUrl('tablet')} media="(min-width: 768px)" onLoad={handleImageLoad} />

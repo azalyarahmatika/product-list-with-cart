@@ -8,7 +8,7 @@ function YourCart({ cartItems, uniqueCartItems, onDeleteItem, handleConfirmOrder
   const orderTotal = uniqueCartItems.reduce((total, item) => total + (item.quantity * item.price), 0);
 
   return(
-    <div className='xl:w-80 font-redhat bg-white p-5 right-0 rounded-md h-fit my-20 lg:mr-24  overflow-auto max-h-[450px] custom-scrollbar'>
+    <div className='xl:w-80 font-redhat bg-white p-5 right-0 rounded-md h-fit my-6 xl:my-20 lg:mr-24 overflow-auto max-h-[450px] custom-scrollbar'>
       <h2 className='text-red text-xl font-bold'>{`Your Cart (${itemCount})`}</h2>
       { !itemCount ? (
         <div className="flex flex-col items-center">
