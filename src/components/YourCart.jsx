@@ -8,7 +8,7 @@ function YourCart({ cartItems, uniqueCartItems, onDeleteItem, handleConfirmOrder
   const orderTotal = uniqueCartItems.reduce((total, item) => total + (item.quantity * item.price), 0);
 
   return(
-    <div className='xl:w-80 font-redhat bg-white p-5 right-0 rounded-md h-fit my-6 xl:my-20 lg:mr-24 overflow-auto max-h-[450px] custom-scrollbar'>
+    <div className='lg:min-w-64 w-full font-redhat bg-white p-5 right-0 rounded-md h-fit my-6 overflow-auto max-h-[450px] custom-scrollbar'>
       <h2 className='text-red text-xl font-bold'>{`Your Cart (${itemCount})`}</h2>
       { !itemCount ? (
         <div className="flex flex-col items-center">
@@ -43,7 +43,7 @@ function YourCart({ cartItems, uniqueCartItems, onDeleteItem, handleConfirmOrder
           <p>This is a <span className='font-semibold'>carbon-neutral</span> delivery</p>
         </div>
 
-        <button className='bg-red rounded-full p-2 text-white mt-5 w-full text-sm font-semibold' onClick={()=>handleConfirmOrder()}>Confirm Order</button>
+        <button className='bg-red rounded-full p-2 text-white mt-5 w-full text-sm font-semibold hover:bg-rose_500' onClick={()=>handleConfirmOrder()}>Confirm Order</button>
       </div>
     
       )}

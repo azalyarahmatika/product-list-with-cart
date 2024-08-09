@@ -68,12 +68,12 @@ function App() {
       <p>Loading...</p>
     ) : (
       <>
-        <div className="flex flex-col bg-rose_50 justify-between relative max-w-7xl mx-auto xl:flex-row">
-          <div className="py-5 px-4 md:py-20 md:pl-24">
+        <div className="flex flex-col bg-rose_50 relative max-w-7xl items-start justify-center lg:flex-row mx-auto">
+          <div className="py-5 px-4 min-[800px]:py-10 min-[400px]:px-10 min-[400px]:py-8">
             <h1 className="text-3xl font-bold font-redhat mb-5 text-rose_900">Desserts</h1>
             <Cards menus={menus} handleInputCartItems={handleInputCartItems} handleDeleteCartItem={handleDeleteCartItem} uniqueCartItems={uniqueCartItems}/>
           </div>
-          <div className="relative p-3 lg:px-24 xl:px-0">
+          <div className="relative p-3 xl:px-0 min-[400px]:px-10 lg:pl-0 lg:pt-4 w-full lg:w-fit">
             <YourCart cartItems={cartItems} uniqueCartItems={uniqueCartItems} onDeleteItem={onDeleteItem} handleConfirmOrder={handleConfirmOrder}/>
           </div>
           

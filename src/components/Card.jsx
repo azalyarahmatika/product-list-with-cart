@@ -19,7 +19,7 @@ function Card({ menu, handleInputCartItems, handleDeleteCartItem, uniqueCartItem
         </div>
       )}
       
-      <div className='xl:h-52 relative h-56 md:h-80'>
+      <div className='relative h-56 md:h-80 lg:h-52'>
         <picture>
           <source srcSet={imageUrl('desktop')} media="(min-width: 1024px)" onLoad={handleImageLoad} />
           <source srcSet={imageUrl('tablet')} media="(min-width: 768px)" onLoad={handleImageLoad} />
